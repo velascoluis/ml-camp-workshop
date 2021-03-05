@@ -16,6 +16,7 @@ import datetime
 import os
 import subprocess
 import argparse
+import logging
 
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
@@ -37,7 +38,7 @@ def build_train_model(project_id,
                         bq_sql_extract,
                         model_output_bucket):
 
-    
+    logging.info("Start exec ...")    
     client = bigquery.Client()
     destination_uri = "gs://{}/{}.csv".format(temp_bucket, bq_table)                    
     dataset_ref = bigquery.DatasetReference(project_id, bq_dataset)
