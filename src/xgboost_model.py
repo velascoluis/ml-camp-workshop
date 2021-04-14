@@ -38,7 +38,7 @@ def build_train_model(project_id,
                         bq_sql_extract,
                         model_output_bucket):
 
-    logging.info("Start exec ...")    
+    logging.info("Start execution ...")    
     client = bigquery.Client()
     destination_uri = "gs://{}/{}.csv".format(temp_bucket, bq_table)                    
     dataset_ref = bigquery.DatasetReference(project_id, bq_dataset)
